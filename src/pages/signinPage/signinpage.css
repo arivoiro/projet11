@@ -2,6 +2,7 @@
     box-sizing: border-box;
     background-color: white;
     width: 300px;
+    min-height: 100%;
     margin: 0 auto;
     margin-top: 3rem;
     padding: 2rem;

@@ -1,14 +1,11 @@
 import React from 'react';
-import Header from '../../components/header/header';
 import WelcomeHeader from '../../components/welcomeHeader/welcomeheader';
 import UserAccount from '../../components/userAccount/useraccount';
-import Footer from '../../components/footer/footer';
 import './userpage.css';
 
 function UserPage() {
   return (
     <div>
-      <Header />
       <main className="main bg-dark">
         <WelcomeHeader username="Tony Jarvis" />
         <UserAccount
@@ -33,7 +30,6 @@ function UserPage() {
           buttonText="View transactions"
         />
       </main>
-      <Footer />
     </div>
   );
 }
