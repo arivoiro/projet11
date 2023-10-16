@@ -11,13 +11,9 @@ class ApiService {
         body: JSON.stringify(loginData),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status}`);
-      }
-
       return response;
     } catch (error) {
-      throw new Error('Error validating login: ' + error.message);
+      throw new Error(error.message);
     }
   }
 }

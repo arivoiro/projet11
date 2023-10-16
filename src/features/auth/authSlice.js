@@ -6,21 +6,18 @@ export const loginUser = (loginData) => {
     try {
       const response = await ApiService.validateLogin(loginData);
 
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status}`);
-      }
-
       const data = await response.json();
 
       if (data.body && data.body.token) {
         dispatch(loginUserSuccess(data.body.token));
       } else {
-        throw new Error('Invalid email or password');
+        console.log(data.message)
+        throw new Error(data.message);
       }
 
       return data;
     } catch (error) {
-      throw new Error('Login failed: ' + error.message);
+      throw new Error(error.message);
     }
   };
 };

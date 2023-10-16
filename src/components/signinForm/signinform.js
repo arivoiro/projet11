@@ -18,27 +18,29 @@ function SignInForm() {
   
     try {
       const responseData = await dispatch(loginUser({ email, password }));
-      console.log(responseData);
-    
+  
       if (responseData.status === 200) {
         if (responseData && responseData.body && responseData.body.token) {
-          console.log(responseData);
           dispatch(loginUserSuccess(responseData.body.token));
           navigate('/home');
         } else {
-          setError('Invalid email or password');
+          setError('Il y a un souci avec la base de données, merci de réessayer plus tard');
         }
       } else {
         if (responseData.status === 400) {
-          setError('Invalid Fields');
+          // Extraire le message d'erreur de la réponse
+          const errorData = await responseData.json();
+          console.log(responseData)
+          setError(errorData.message);
         } else if (responseData.status === 500) {
-          setError('Internal Server Error');
+          const errorData = await responseData.json();
+          setError(errorData.message);
         } else {
           setError('HTTP Error: ' + responseData.status);
         }
       }
     } catch (error) {
-      setError("Error validating login: " + error.message);
+      setError(error.message);
     }
   };
   
