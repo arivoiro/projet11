@@ -1,22 +1,34 @@
-class ApiService {
-  baseUrl = 'http://localhost:3001/api/v1';
+const baseUrl = 'http://localhost:3001/api/v1';
 
-  async validateLogin(loginData) {
-    try {
-      const response = await fetch(`${this.baseUrl}/user/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(loginData),
-      });
+export async function validateLogin(loginData) {
+  try {
+    const response = await fetch(`${baseUrl}/user/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(loginData),
+    });
 
-      return response;
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    return response;
+  } catch (error) {
+    throw new Error(error.message);
   }
 }
 
-// eslint-disable-next-line
-export default new ApiService();
+export async function getUserProfile(token) {
+  try {
+    const response = await fetch(`${baseUrl}/user/profile`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(),
+    });
+
+    return response;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}

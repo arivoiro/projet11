@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginUser, loginUserSuccess } from '../../features/auth/authSlice';
+import { loginUser, loginUserSuccess, fetchUserProfile } from '../../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 import './signinform.css';
 
@@ -20,15 +20,15 @@ function SignInForm() {
       const responseData = await dispatch(loginUser({ email, password }));
   
       if (responseData.status === 200) {
-        if (responseData && responseData.body && responseData.body.token) {
+        if (responseData?.body?.token) {
           dispatch(loginUserSuccess(responseData.body.token));
-          navigate('/home');
+          dispatch(fetchUserProfile(responseData.body.token));
+          navigate('/user');
         } else {
-          setError('Il y a un souci avec la base de données, merci de réessayer plus tard');
+          setError('Try to login again later');
         }
       } else {
         if (responseData.status === 400) {
-          // Extraire le message d'erreur de la réponse
           const errorData = await responseData.json();
           console.log(responseData)
           setError(errorData.message);
