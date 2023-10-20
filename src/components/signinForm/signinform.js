@@ -25,7 +25,7 @@ function SignInForm() {
           dispatch(fetchUserProfile(responseData.body.token));
           navigate('/user');
         } else {
-          setError('Try to login again later');
+          setError('Try logging again later');
         }
       } else {
         if (responseData.status === 400) {

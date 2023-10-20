@@ -17,8 +17,18 @@
   .main-nav-item {
     text-decoration: none;
     margin-right: 0.5rem;
+    margin-left: 0.25rem;
+  }
+
+  .main-nav-item .iconLogout {
+    margin-left: 0.75rem;
+    margin-right: 0.15rem;
   }
   
+  .main-nav-item .iconCircle {
+    margin-right: 0.25rem;
+  }
+
   .main-nav-item:hover {
     text-decoration: underline;
   }

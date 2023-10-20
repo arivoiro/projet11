@@ -7,6 +7,10 @@ import UserPage from './pages/userPage/userpage';
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+library.add(faCircleUser, faRightFromBracket);
+
 function App() {
   return (
     <Router>
