@@ -4,12 +4,14 @@ import './App.css';
 import HomePage from './pages/homePage/homepage';
 import SignInPage from './pages/signinPage/signinpage';
 import UserPage from './pages/userPage/userpage';
+import EditPage from "./pages/editPage/editpage";
+import TransactionPage from "./pages/transactionsPage/transactionspage";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircleUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-library.add(faCircleUser, faRightFromBracket);
+import { faCircleUser, faRightFromBracket, faGear } from '@fortawesome/free-solid-svg-icons'
+library.add(faCircleUser, faRightFromBracket, faGear);
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/user" element={<UserPage />} />
+        <Route path="/edit-username" element={<EditPage/>}/>
+        <Route path="/transactions" element={<TransactionPage/>}/>
         <Route path="*" element={<HomePage />}/>
       </Routes>
       <Footer />

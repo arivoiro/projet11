@@ -30,7 +30,6 @@ function SignInForm() {
       } else {
         if (responseData.status === 400) {
           const errorData = await responseData.json();
-          console.log(responseData)
           setError(errorData.message);
         } else if (responseData.status === 500) {
           const errorData = await responseData.json();
@@ -43,7 +42,6 @@ function SignInForm() {
       setError(error.message);
     }
   };
-  
 
   return (
     <form onSubmit={handleSubmit}>

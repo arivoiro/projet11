@@ -25,13 +25,18 @@ function Header() {
         />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
-      <div>
+      <div class="nav-holder">
             
         {token ? (
-          <Link to="/user" className="main-nav-item">
-            <FontAwesomeIcon className="iconCircle" icon="fa-solid fa-circle-user" />
-            {userName}  
-          </Link>
+          <div>
+            <Link to="/user" className="main-nav-item">
+              <FontAwesomeIcon className="iconCircle" icon="fa-solid fa-circle-user" />
+              {userName}
+            </Link>
+            <Link to="/edit-username" className="main-nav-item">
+              <FontAwesomeIcon icon="fa-solid fa-gear" />
+            </Link>
+          </div>
           ) : (
             <FontAwesomeIcon className="iconCircle" icon="fa-solid fa-circle-user" />
           )}

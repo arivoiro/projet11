@@ -5,3 +5,10 @@
     font-weight: bold;
     padding: 10px;
   }
+
+.tryAgain {
+  margin-top: 20rem;
+  height: 10rem;
+  width: 30rem;
+  font-size: 2rem;
+}

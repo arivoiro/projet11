@@ -37,7 +37,9 @@ function UserPage() {
           />
         </main>
       ) : (
-        <div />
+        <main className="main bg-dark">
+          <WelcomeHeader />
+        </main>
       )}
     </div>
   );
