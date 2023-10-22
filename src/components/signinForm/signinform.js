@@ -46,7 +46,7 @@ function SignInForm() {
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-wrapper">
-        <label htmlFor="email">Username</label>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           id="email"

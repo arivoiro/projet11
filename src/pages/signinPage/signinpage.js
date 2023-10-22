@@ -1,4 +1,3 @@
-// src/pages/signinPage/SignInPage.js
 import React from 'react';
 import SignInForm from '../../components/signinForm/signinform';
 

@@ -25,7 +25,7 @@ function Header() {
         />
         <h1 className="sr-only">Argent Bank</h1>
       </Link>
-      <div class="nav-holder">
+      <div className="nav-holder">
             
         {token ? (
           <div>
@@ -41,7 +41,7 @@ function Header() {
             <FontAwesomeIcon className="iconCircle" icon="fa-solid fa-circle-user" />
           )}
         {token ? (
-          <Link to="/" className="main-nav-item" onClick={handleLogout}>
+          <Link to="/home" className="main-nav-item" onClick={handleLogout}>
             <FontAwesomeIcon className="iconLogout" icon="fa-solid fa-right-from-bracket" />
             Sign Out
           </Link>

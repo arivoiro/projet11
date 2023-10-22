@@ -11,7 +11,6 @@ export const loginUser = (loginData) => {
       if (data.body?.token) {
         dispatch(loginUserSuccess(data.body.token));
       } else {
-        console.log(data.message)
         throw new Error(data.message);
       }
 
@@ -31,10 +30,10 @@ export const fetchUserProfile = (token) => {
 
       const data = await response.json();
 
-      console.log(data.body.userName);
-
       if (data.body) {
         dispatch(updateUserName(data.body.userName));
+        dispatch(updateFirstName(data.body.firstName));
+        dispatch(updateLastName(data.body.lastName));
       }
     } catch (error) {
       console.error("Error fetching user profile:", error);
@@ -43,35 +42,48 @@ export const fetchUserProfile = (token) => {
 };
 
 export const updateUserName = createAction('auth/updateUserName');
+export const updateFirstName = createAction('auth/updateFirstName');
+export const updateLastName = createAction('auth/updateLastName');
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
     token: null,
-    userName: null, 
+    userName: null,
+    firstName: null,
+    lastName: null,
     status: 'idle',
     error: null,
   },
   reducers: {
     loginUserSuccess: (state, action) => {
       state.token = action.payload;
-      state.userName = null;
       state.status = 'succeeded';
       state.error = null;
     },
     logout: (state) => {
       state.token = null;
+      state.firstName = null;
+      state.lastName = null;
       state.status = 'idle';
       state.error = null;
     },
     updateUserName: (state, action) => {
       state.userName = action.payload;
     },
+    updateFirstName: (state, action) => {
+      state.firstName = action.payload;
+    },
+    updateLastName: (state, action) => {
+      state.lastName = action.payload;
+    },
   },
 });
 
 export const selectToken = (state) => state.auth.token;
 export const selectUserName = (state) => state.auth.userName;
+export const selectFirstName = (state) => state.auth.firstName;
+export const selectLastName = (state) => state.auth.lastName;
 export const selectStatus = (state) => state.auth.status;
 export const selectError = (state) => state.auth.error;
 
