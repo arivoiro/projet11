@@ -10,8 +10,8 @@ import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircleUser, faRightFromBracket, faGear, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-library.add(faCircleUser, faRightFromBracket, faGear, faChevronRight);
+import { faCircleUser, faRightFromBracket, faGear, faChevronRight, faXmark, faChevronUp, faPencil } from '@fortawesome/free-solid-svg-icons'
+library.add(faCircleUser, faRightFromBracket, faGear, faChevronRight, faXmark, faChevronUp, faPencil);
 
 function App() {
   return (

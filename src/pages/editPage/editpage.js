@@ -1,13 +1,13 @@
 import React from 'react';
 import './editpage.css';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectToken } from '../../features/auth/authSlice';
 
+import WelcomeHeader from '../../components/welcomeHeader/welcomeheader';
 import EditUserInfo from '../../components/editUserInfo/edituserinfo';
 import EditUserAccount from '../../components/editUserAccount/edituseraccount';
 
-function HomePage() {
+function EditPage() {
 
   const token = useSelector(selectToken);
 
@@ -36,12 +36,12 @@ function HomePage() {
           />
         </section>
         ) : (
-          <Link to="/sign-in">
-            <div className='logging-again'>Try logging in again</div>
-          </Link>
+          <main className="main bg-dark">
+            <WelcomeHeader />
+          </main>
       )}
     </div>
   );
 }
 
-export default HomePage;
+export default EditPage;

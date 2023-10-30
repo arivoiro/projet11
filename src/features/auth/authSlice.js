@@ -44,6 +44,8 @@ export const fetchUserProfile = (token) => {
 export const updateUserName = createAction('auth/updateUserName');
 export const updateFirstName = createAction('auth/updateFirstName');
 export const updateLastName = createAction('auth/updateLastName');
+export const updateCategory = createAction('auth/updateCategory');
+export const updateNote = createAction('auth/updateNote');
 
 const authSlice = createSlice({
   name: 'auth',
@@ -77,6 +79,12 @@ const authSlice = createSlice({
     updateLastName: (state, action) => {
       state.lastName = action.payload;
     },
+    updateCategory: (state, action) => {
+      state.category = action.payload;
+    },
+    updateNote: (state, action) => {
+      state.note = action.payload;
+    },
   },
 });
 
@@ -86,6 +94,8 @@ export const selectFirstName = (state) => state.auth.firstName;
 export const selectLastName = (state) => state.auth.lastName;
 export const selectStatus = (state) => state.auth.status;
 export const selectError = (state) => state.auth.error;
+export const selectCategory = (state) => state.auth.category;
+export const selectNote = (state) => state.auth.note;
 
 export const { loginUserSuccess } = authSlice.actions;
 

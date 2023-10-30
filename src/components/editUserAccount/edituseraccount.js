@@ -4,7 +4,7 @@ import './edituseraccount.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function EditUserAccount({ title, accountNumber, balance, description, buttonText }) {
+function EditUserAccount({ title, accountNumber, balance, description }) {
   return (
     <section className="user-account">
       <div className="user-account-content-wrapper">

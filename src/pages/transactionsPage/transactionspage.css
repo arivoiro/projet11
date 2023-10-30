@@ -1,0 +1,14 @@
+.transactions-header-grid {
+    display: grid;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    width: 85%;
+    grid-template-columns: 2fr 5fr 2fr 2fr 1fr;
+    text-align: left;
+}
+
+.transaction-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
