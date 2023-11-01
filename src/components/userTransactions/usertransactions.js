@@ -4,7 +4,7 @@ import './usertransactions.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function EditUserAccount({ title, accountNumber, balance, description }) {
+function UserTransactions({ title, accountNumber, balance, description }) {
   return (
     <section className="user-transactions">
       <div className="user-transactions-content-wrapper">
@@ -19,4 +19,4 @@ function EditUserAccount({ title, accountNumber, balance, description }) {
   );
 }
 
-export default EditUserAccount;
+export default UserTransactions;

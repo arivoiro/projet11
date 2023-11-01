@@ -10,6 +10,7 @@ function SignInForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Fonction pour gérer la soumission du formulaire
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');

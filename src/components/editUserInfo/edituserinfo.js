@@ -16,33 +16,34 @@ function EditUserInfo() {
   const [error, setError] = useState('');
   const [originalUsername, setOriginalUsername] = useState('');
 
+  // Effet pour initialiser newUsername et originalUsername avec la valeur actuelle du nom d'utilisateur.
   useEffect(() => {
     setOriginalUsername(userName);
     setNewUsername(userName);
   }, [userName]);
 
-
+  // Fonction pour gérer la sauvegarde des modifications
   const handleSave = async (e) => {
     e.preventDefault();
 
+    // Vérification si le nouveau nom d'utilisateur n'est pas vide.
     if (newUsername.trim() === '') {
       setError('Le nom d\'utilisateur ne peut pas être vide.');
       return;
     }
   
+    // Tente de mettre à jour le nom d'utilisateur.
     try {
       const response = await updateUsername(token, newUsername);
       if (response.status === 200) {
         dispatch(updateUserName(newUsername));
-      } else {
-        // Gérer les erreurs
       }
     } catch (error) {
-      console.error('Error updating username:', error);
-      // Gérer les erreurs 
+      return error;
     }
   };
 
+  // Fonction pour annuler les modifications
   const handleCancel = () => {
     setNewUsername(originalUsername);
   };

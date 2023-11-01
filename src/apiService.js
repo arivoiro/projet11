@@ -1,7 +1,9 @@
 const baseUrl = 'http://localhost:3001/api/v1';
 
+// Fonction pour valider les informations de connexion de l'utilisateur.
 export async function validateLogin(loginData) {
   try {
+    // Effectuer une requête POST pour la connexion utilisateur.
     const response = await fetch(`${baseUrl}/user/login`, {
       method: 'POST',
       headers: {
@@ -16,13 +18,15 @@ export async function validateLogin(loginData) {
   }
 }
 
+// Fonction pour récupérer le profil de l'utilisateur.
 export async function getUserProfile(token) {
   try {
+    // Effectuer une requête POST pour obtenir le profil utilisateur.
     const response = await fetch(`${baseUrl}/user/profile`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`, // Passer le token d'authentification dans les headers.
       },
       body: JSON.stringify(),
     });
@@ -33,13 +37,15 @@ export async function getUserProfile(token) {
   }
 }
 
+// Fonction pour mettre à jour le nom d'utilisateur.
 export async function updateUsername(token, newUsername) {
   try {
+    // Effectuer une requête PUT pour mettre à jour le nom d'utilisateur.
     const response = await fetch(`${baseUrl}/user/profile`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`, // Passer le token d'authentification dans les headers.
       },
       body: JSON.stringify({ userName: newUsername }),
     });
