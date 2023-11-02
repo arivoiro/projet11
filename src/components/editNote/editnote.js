@@ -5,12 +5,12 @@ const EditNote = ({ note, onUpdate }) => {
   const [editing, setEditing] = useState(false);
   const [newNote, setNewNote] = useState(note);
 
-  // Gérer le changement de la note
+  // Handle note change
   const handleNoteChange = (e) => {
     setNewNote(e.target.value);
   };
 
-  // Sauvegarder la nouvelle note
+  // Save the new note
   const saveNote = () => {
     onUpdate(newNote);
     setEditing(false);

@@ -5,12 +5,12 @@ const EditCategory = ({ category, onUpdate }) => {
   const [editing, setEditing] = useState(false);
   const [newCategory, setNewCategory] = useState(category);
 
-  // Gérer le changement de catégorie
+  // Handle category change
   const handleCategoryChange = (e) => {
     setNewCategory(e.target.value);
   };
 
-  // Sauvegarder la nouvelle catégorie
+  // Save the new category
   const saveCategory = () => {
     onUpdate(newCategory);
     setEditing(false);

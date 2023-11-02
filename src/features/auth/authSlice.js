@@ -1,15 +1,15 @@
 import { createSlice, createAction } from '@reduxjs/toolkit';
 import { validateLogin, getUserProfile } from '../../apiService';
 
-// Action asynchrone pour la connexion des utilisateurs.
+// Asynchronous action for user login.
 export const loginUser = (loginData) => {
   return async (dispatch) => {
     try {
-      // Tentative de connexion en appelant l'API de validation de login.
+      // Attempt to login by calling the login validation API.
       const response = await validateLogin(loginData);
       const data = await response.json();
 
-      // Si un token est reçu, la connexion est un succès.
+      // If a token is received, login is successful.
       if (data.body?.token) {
         dispatch(loginUserSuccess(data.body.token));
       } else {
@@ -23,7 +23,7 @@ export const loginUser = (loginData) => {
   };
 };
 
-// Action asynchrone pour récupérer le profil de l'utilisateur
+// Asynchronous action to retrieve the user's profile
 export const fetchUserProfile = (token) => {
   return async (dispatch) => {
     try {
@@ -41,7 +41,7 @@ export const fetchUserProfile = (token) => {
   };
 };
 
-// Actions synchrones créées pour gérer différentes parties de l'état.
+// Synchronous actions created to handle different parts of the state.
 export const logout = createAction('auth/logout');
 export const updateUserName = createAction('auth/updateUserName');
 export const updateFirstName = createAction('auth/updateFirstName');
@@ -49,7 +49,7 @@ export const updateLastName = createAction('auth/updateLastName');
 export const updateCategory = createAction('auth/updateCategory');
 export const updateNote = createAction('auth/updateNote');
 
-// Définition du slice avec son état initial et ses réducteurs.
+// Defining the slice with its initial state and reducers.
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -91,7 +91,7 @@ const authSlice = createSlice({
   },
 });
 
-// Sélecteurs pour accéder aux différentes parties de l'état.
+// Selectors to access different parts of the state.
 export const selectToken = (state) => state.auth.token;
 export const selectUserName = (state) => state.auth.userName;
 export const selectFirstName = (state) => state.auth.firstName;

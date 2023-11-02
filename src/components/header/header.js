@@ -11,7 +11,7 @@ function Header() {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
 
-  // Gestion de la déconnexion
+  // Handle logout
   const handleLogout = () => {
     dispatch(logout());
   };
