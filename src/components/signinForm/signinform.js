@@ -24,7 +24,7 @@ function SignInForm() {
         if (responseData?.body?.token) {
           dispatch(loginUserSuccess(responseData.body.token));
           dispatch(fetchUserProfile(responseData.body.token));
-          navigate('/user');
+          navigate('/profile');
         } else {
           setError('Try logging again later');
         }

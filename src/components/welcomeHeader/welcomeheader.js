@@ -17,7 +17,7 @@ function WelcomeHeader({ username }) {
         </Link>
       </div>
       ) : (
-        <Link to="/sign-in">
+        <Link to="/login">
           <button className="edit-button tryAgain">Try logging in again</button>
         </Link>
       )}

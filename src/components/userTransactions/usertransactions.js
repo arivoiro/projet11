@@ -12,7 +12,7 @@ function UserTransactions({ title, accountNumber, balance, description }) {
         <p className="user-transactions-amount">{balance}</p>
         <p className="user-transactions-amount-description">{description}</p>
       </div>
-      <Link to="/user" className="account-content-wrapper cta">
+      <Link to="/profile" className="account-content-wrapper cta">
         <FontAwesomeIcon className='user-transactions-xmark' icon="fa-solid fa-xmark" />
       </Link>
     </section>

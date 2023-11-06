@@ -30,7 +30,7 @@ function Header() {
             
         {token ? (
           <div>
-            <Link to="/user" className="main-nav-item">
+            <Link to="/profile" className="main-nav-item">
               <FontAwesomeIcon className="iconCircle" icon="fa-solid fa-circle-user" />
               {userName}
             </Link>
@@ -47,7 +47,7 @@ function Header() {
             Sign Out
           </Link>
         ) : (
-          <Link to="/sign-in" className="main-nav-item">
+          <Link to="/login" className="main-nav-item">
             Sign In
           </Link>
         )}
